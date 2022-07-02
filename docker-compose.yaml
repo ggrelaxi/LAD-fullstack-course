@@ -1,0 +1,24 @@
+version: '3.7'
+services:
+  postgres:
+    image: postgres
+    container_name: diplom_postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=ggrelaxi
+      - POSTGRES_PASSWORD=251288
+      - DATABASE_HOST=postgres
+      - DATABASE_POST=5432
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./diplom-db:/var/lib/postgresql/data
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    restart: always
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=ggrelaxi@gmail.com
+      - PGADMIN_DEFAULT_PASSWORD=251288
+    ports:
+      - "5050:80"
